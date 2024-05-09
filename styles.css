@@ -1,0 +1,84 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    overflow: auto; /* Enable scrolling for the entire page */
+}
+
+/* Sticky header styling */
+header#header {
+    position: fixed;
+    top: 0;
+    left: 0; /* Ensures the header starts from the left edge of the viewport */
+    right: 0; /* Ensures the header stretches right to the edge of the viewport */
+    background-color: white;
+    padding: 10px;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000; /* Keeps the header above other content */
+}
+
+/* Flex container for buttons and summary */
+header#header .buttons, #summary {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+/* Button styling */
+button {
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Adjust padding for the body to ensure it does not hide under the fixed header */
+body {
+    padding-top: 100px; /* Adjust based on your header's height */
+}
+
+/* Main container for players, allowing both vertical and horizontal alignment */
+#players {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align levels to the left */
+    width: max-content; /* This makes sure the container is as wide as it needs to be */
+    min-width: 100%; /* Ensure at least full width */
+    overflow-y: auto; /* Enable vertical scrolling inside players container */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.level {
+    display: flex;
+    justify-content: flex-start; /* Align players within a level to the left */
+    flex-wrap: nowrap; /* Prevent wrapping within a level */
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Individual player box styling with fixed dimensions and no content shrinkage */
+.player {
+    margin: 5px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 180px;
+    height: 120px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
