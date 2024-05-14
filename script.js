@@ -76,7 +76,7 @@ function distributeCommissions(newPlayer) {
                 parent.commissions += commissionToTake;
                 piggybank += (commissionFromNew - commissionToTake); // Only add the difference to the piggybank if the parent is not frozen and can take less than the full commission
 
-                if (parent.comissions >= parent.maxCommissions) {
+                if (parent.commissions >= parent.maxCommissions) {
                     freezePlayer(parent);
                 }
                 updatePlayerDisplay(parent);
@@ -136,14 +136,11 @@ function updatePlayerDisplay(player) {
             Total: $${player.purchase.toFixed(2)}<br>
             Commissions: $${player.commissions.toFixed(2)}
         `;
-        // Check if the player is frozen and apply a red border, otherwise reset to default
         if (player.frozen) {
-            playerDiv.style.border = '1px solid red'; // Applying red border to frozen users
+            playerDiv.style.backgroundColor = 'red';
         } else {
-            playerDiv.style.border = '1px solid #ddd'; // Reset to default border when not frozen
+            playerDiv.style.backgroundColor = ''; // Reset background color if not frozen
         }
-    } else {
-        console.log(`Element not found for player ${player.id}`);
     }
 }
 
@@ -164,6 +161,9 @@ function displayPlayer(player, container) {
         Total: $${player.purchase.toFixed(2)}<br>
         Commissions: $${player.commissions.toFixed(2)}
     `;
+    if (player.frozen) {
+        playerDiv.style.backgroundColor = 'red';
+    }
     levelDiv.appendChild(playerDiv);
 }
 
